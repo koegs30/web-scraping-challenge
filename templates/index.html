@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <body>
+        <div class="container-fluid">
+            <div class="jumbotron text-center">
+                <h1>Mission to Mars</h1>
+                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Mars Data</a></p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="heading">Latest Mars News</h3>
+                    <h4>{{ mars.news_title }}</h4>
+                    <p>{{ mars.news_p }}</p>
+                    <br>
+                    <h3 class="heading">Featured Mars Image</h3>
+                    <a href="{{mars.featured_image_url}}">
+                    <img class="figure_img" src="{{mars.featured_image_url}}" width=500px>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card" style="width: 35rem;">
+                        <div class="card-body">
+                            <h3 class="card-title">Current Mars Weather</h3>
+                            <p class="card-text">{{ mars.mars_weather}}</p>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <h3 class="heading">Mars Facts</h3>
+                    {{ mars.html_table|safe }}
+                </div>
+            </div>
+            <br>
+            <br>
+            <h3 class="heading text-center">Mars Hemispheres</h3>
+            <br>
+            <div class="row">
+              <div class="col-lg-12">
+              </div>
+              <div class="col-lg-6">
+                <div class="card" style="width: 35rem;">
+                    <a href="{{ mars.hemi_list[0].img_url }}">
+                        <img class="card-img-top" src="{{ mars.hemi_list[0].img_url }}" width=300px alt="first hemisphere">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-text text-center">{{ mars.hemi_list[0].title }}</h4>
+                    </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card" style="width: 35rem;">
+                    <a href="{{ mars.hemi_list[1].img_url }}">
+                        <img class="card-img-top" src="{{ mars.hemi_list[1].img_url }}" width=300px alt="second hemisphere">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-text text-center">{{ mars.hemi_list[1].title }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card" style="width: 35rem;">
+                    <a href="{{mars.hemi_list[2].img_url }}">
+                        <img class="card-img-top" src="{{ mars.hemi_list[2].img_url }}" width=300px alt="third hemisphere">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-text text-center">{{ mars.hemi_list[2].title}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="width: 35rem;">
+                    <a href="{{ mars.hemi_list[3].img_url }}">
+                        <img class="card-img-top" src="{{mars.hemi_list[3].img_url }}" width=300px alt="fourth hemisphere">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-text text-center">{{ mars.hemi_list[3].title }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
